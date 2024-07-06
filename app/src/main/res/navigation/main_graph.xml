@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/watchedFragment">
-    <fragment
-        android:id="@+id/plannedFragment"
-        android:name="com.itis.filmy.PlannedFragment"
-        android:label="PlannedFragment"
-        tools:layout="@layout/fragment_planned"/>
+    app:startDestination="@id/plannedFragment">
+
     <fragment
         android:id="@+id/watchedFragment"
         android:name="com.itis.filmy.WatchedFragment"
-        android:label="WatchedFragment"
+        android:label="fragment_watched"
         tools:layout="@layout/fragment_watched"/>
-
+    <fragment
+        android:id="@+id/plannedFragment"
+        android:name="com.itis.filmy.PlannedFragment"
+        android:label="fragment_planned">
+    </fragment>
 </navigation>
