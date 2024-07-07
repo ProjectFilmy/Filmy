@@ -3,15 +3,13 @@ package com.itis.filmy
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.itis.filmy.databinding.FragmentPlannedBinding
-import com.itis.filmy.databinding.FragmentWatchedBinding
+import com.itis.filmy.databinding.FragmentAddFilmBinding
 
-class WatchedFragment: Fragment(R.layout.fragment_watched) {
-    private var binding: FragmentWatchedBinding?= null
+class AddFilmFragment: Fragment(R.layout.fragment_add_film) {
+    private var binding: FragmentAddFilmBinding? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentWatchedBinding.bind(view)
-
+        binding = FragmentAddFilmBinding.bind(view)
     }
     override fun onDestroy() {
         super.onDestroy()

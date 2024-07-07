@@ -6,13 +6,18 @@
     app:startDestination="@id/plannedFragment">
 
     <fragment
-        android:id="@+id/watchedFragment"
-        android:name="com.itis.filmy.WatchedFragment"
-        android:label="fragment_watched"
-        tools:layout="@layout/fragment_watched"/>
-    <fragment
         android:id="@+id/plannedFragment"
         android:name="com.itis.filmy.PlannedFragment"
-        android:label="fragment_planned">
-    </fragment>
+        android:label="fragment_planned"
+        tools:layout="@layout/fragment_planned"/>
+    <fragment
+        android:id="@+id/watchedFragment"
+        android:name="com.itis.filmy.WatchedFragment"
+        android:label="WatchedFragment"
+        tools:layout="@layout/fragment_watched"/>
+    <fragment
+        android:id="@+id/addFilmFragment"
+        android:name="com.itis.filmy.AddFilmFragment"
+        android:label="AddFilmFragment"
+        tools:layout="@layout/fragment_add_film"/>
 </navigation>
