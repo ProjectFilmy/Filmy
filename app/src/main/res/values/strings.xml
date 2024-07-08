@@ -10,6 +10,7 @@
     <string name="date_of_release">Date of release</string>
     <string name="link_to_image">Link to image</string>
     <string name="commentary_on_the_film">Commentary on the film</string>
+    <string name="add_film_button">Add film</string>
     <string-array name="tabs">
         <item>Watched</item>
         <item>Planned</item>

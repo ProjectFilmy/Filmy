@@ -78,6 +78,7 @@
         android:layout_height="wrap_content"
         android:numStars="5"
         android:stepSize="0.5"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/input_genre"
@@ -87,6 +88,7 @@
         android:id="@+id/input_comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="visible"
         app:layout_constraintTop_toBottomOf="@id/rating"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,6 +96,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_edit_comment"
             android:layout_width="match_parent"
+            android:visibility="visible"
             android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,6 +109,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:entries="@array/tabs"/>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_film_button"
+        app:layout_constraintTop_toBottomOf="@id/input_comment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

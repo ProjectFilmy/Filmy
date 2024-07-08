@@ -1,7 +1,7 @@
 package com.itis.filmy
 
 object FilmsRepository {
-    val films: List<Film> = listOf(
+    val films: MutableList<Film> = mutableListOf(
         Film(0,
             "planned",
             "PlannedFilm",
@@ -21,8 +21,5 @@ object FilmsRepository {
             2.5f,
             "https://fotovdom.ru/upload/iblock/928/928025cf31b071ce8889e6d4f1ee346a.jpg"
         )
-
-
-
     )
 }
