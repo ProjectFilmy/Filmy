@@ -2,7 +2,9 @@ package com.itis.filmy
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import com.itis.filmy.databinding.FragmentWatchedBinding
@@ -25,14 +27,13 @@ class WatchedFragment: Fragment(R.layout.fragment_watched) {
         binding?.run {
             adapter = FilmAdapter(
                 FilmsRepository.films.stream().filter { x -> x.type == "watched" }.collect(Collectors.toList()),
-                Glide.with(this@WatchedFragment),
-                onClick = {
-                    val id = it.id
-                    val bundle = Bundle()
-                    bundle.putString("ARG_TEXT", id.toString())
-                    //findNavController().navigate(R.id.action_citiesFragment_to_cityFragment, bundle)
-                }
-            )
+                Glide.with(this@WatchedFragment)
+            ) { filmId ->
+                findNavController().navigate(
+                    R.id.action_watchedFragment_to_filmDetailFragment,
+                    bundleOf("FILM_ID" to filmId)
+                )
+            }
             rvWatched.adapter = adapter
             rvWatched.layoutManager = GridLayoutManager(requireContext(), 2)
         }

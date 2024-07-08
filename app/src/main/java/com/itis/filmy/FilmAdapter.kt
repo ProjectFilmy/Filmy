@@ -9,7 +9,7 @@ import com.itis.filmy.databinding.ItemFilmBinding
 class FilmAdapter(
     private val list: List<Film>,
     private val glide: RequestManager,
-    private val onClick: (Film) -> Unit
+    private val onClick: (Int) -> Unit
 ): RecyclerView.Adapter<FilmHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmHolder = FilmHolder(

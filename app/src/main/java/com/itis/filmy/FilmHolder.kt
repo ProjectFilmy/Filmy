@@ -7,7 +7,7 @@ import com.itis.filmy.databinding.ItemFilmBinding
 class FilmHolder(
     private val binding: ItemFilmBinding,
     private val glide: RequestManager,
-    private val onClick: (Film) -> Unit
+    private val onClick: (Int) -> Unit
 ): ViewHolder(binding.root) {
     fun onBind(film: Film){
         binding.run {
@@ -18,7 +18,7 @@ class FilmHolder(
                 .into(ivFilm)
 
             root.setOnClickListener {
-                onClick.invoke(film)
+                onClick.invoke(film.id)
             }
         }
     }

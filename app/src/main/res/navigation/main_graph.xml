@@ -9,15 +9,48 @@
         android:id="@+id/plannedFragment"
         android:name="com.itis.filmy.PlannedFragment"
         android:label="fragment_planned"
-        tools:layout="@layout/fragment_planned"/>
+        tools:layout="@layout/fragment_planned">
+        <action
+            android:id="@+id/action_plannedFragment_to_watchedFragment"
+            app:destination="@id/watchedFragment" />
+        <action
+            android:id="@+id/action_plannedFragment_to_filmDetailFragment"
+            app:destination="@id/filmDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/watchedFragment"
         android:name="com.itis.filmy.WatchedFragment"
         android:label="WatchedFragment"
-        tools:layout="@layout/fragment_watched"/>
+        tools:layout="@layout/fragment_watched">
+        <action
+            android:id="@+id/action_watchedFragment_to_plannedFragment"
+            app:destination="@id/plannedFragment" />
+        <action
+            android:id="@+id/action_watchedFragment_to_addFilmFragment"
+            app:destination="@id/addFilmFragment" />
+        <action
+            android:id="@+id/action_watchedFragment_to_filmDetailFragment"
+            app:destination="@id/filmDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addFilmFragment"
         android:name="com.itis.filmy.AddFilmFragment"
         android:label="AddFilmFragment"
-        tools:layout="@layout/fragment_add_film"/>
+        tools:layout="@layout/fragment_add_film">
+        <action
+            android:id="@+id/action_addFilmFragment_to_watchedFragment"
+            app:destination="@id/watchedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/filmDetailFragment"
+        android:name="com.itis.filmy.FilmDetailFragment"
+        android:label="fragment_film_detail"
+        tools:layout="@layout/fragment_film_detail" >
+        <action
+            android:id="@+id/action_filmDetailFragment_to_watchedFragment"
+            app:destination="@id/watchedFragment" />
+        <action
+            android:id="@+id/action_filmDetailFragment_to_plannedFragment"
+            app:destination="@id/plannedFragment" />
+    </fragment>
 </navigation>
