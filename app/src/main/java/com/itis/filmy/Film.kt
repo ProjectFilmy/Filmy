@@ -11,5 +11,9 @@ data class Film(
     val rating: Float,
     val url: String
 ) {
+    override fun toString():String{
+        return "$id $type $name $genre $date $comment $rating $url"
+    }
+
 
 }
