@@ -26,7 +26,7 @@ class WatchedFragment: Fragment(R.layout.fragment_watched) {
 
         binding?.run {
             adapter = FilmAdapter(
-                FilmsRepository.films.stream().filter { x -> x.type == "watched" }.collect(Collectors.toList()),
+                FilmsRepository.films.stream().filter { x -> x.type == "Watched" }.collect(Collectors.toList()),
                 Glide.with(this@WatchedFragment)
             ) { filmId ->
                 findNavController().navigate(

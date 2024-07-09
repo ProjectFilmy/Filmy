@@ -6,4 +6,7 @@
     </style>
 
     <style name="Theme.Filmy" parent="Base.Theme.Filmy" />
+    <style name="InputText" parent="ThemeOverlay.Material3.TextInputEditText" >
+
+    </style>
 </resources>
