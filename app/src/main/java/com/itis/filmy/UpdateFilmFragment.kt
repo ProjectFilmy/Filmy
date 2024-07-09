@@ -3,6 +3,7 @@ package com.itis.filmy
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.AdapterView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
@@ -30,10 +31,23 @@ class UpdateFilmFragment : Fragment(R.layout.fragment_update) {
             inputEditDate2.setText(film.date)
             rating2.rating = film.rating
             inputEditComment2.setText(film.comment)
-            when(film.type){
-                "planned" -> {inputComment2.visibility = View.GONE; rating2.visibility = View.GONE }
-                "watched" -> {}
+            spinner2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                    val selectedItem = parent.getItemAtPosition(position).toString()
+                    println(selectedItem)
+                    when(selectedItem){
+                        "Planned" -> {rating2.visibility = View.GONE
+                            inputComment2.visibility = View.GONE
+                            inputEditComment2.visibility = View.GONE}
+                        "Watched" -> {rating2.visibility = View.VISIBLE
+                            inputComment2.visibility = View.VISIBLE
+                            inputEditComment2.visibility = View.VISIBLE}
+                    }
+                }
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                }
             }
+
 
 
             imageViewBack2.setOnClickListener {

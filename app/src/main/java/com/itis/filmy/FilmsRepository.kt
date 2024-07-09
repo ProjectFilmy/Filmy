@@ -1,8 +1,5 @@
 package com.itis.filmy
 
-import androidx.room.Delete
-import androidx.room.Update
-
 object FilmsRepository {
 
     fun insertFilm(film: Film){
@@ -29,7 +26,7 @@ object FilmsRepository {
     }
     var id: Int = 2;
     val films: MutableList<Film> = mutableListOf(
-        Film(0,
+        /*Film(0,
             "Planned",
             "PlannedFilm",
             "Крутой",
@@ -48,5 +45,7 @@ object FilmsRepository {
             2.5f,
             "https://fotovdom.ru/upload/iblock/928/928025cf31b071ce8889e6d4f1ee346a.jpg"
         )
+
+         */
     )
 }

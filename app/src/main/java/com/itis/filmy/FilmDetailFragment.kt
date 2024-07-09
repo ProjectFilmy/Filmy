@@ -32,23 +32,23 @@ class FilmDetailFragment : Fragment(R.layout.fragment_film_detail) {
             genre.text = "Жанр фильма: " + film.genre
             dateOfRelease.text = "Дата выхода: " + film.date
             rating.rating = film.rating
-            comment.text = "Коментарий: " + film.comment
+            comment.text = "Комментарий: " + film.comment
             when(film.type){
-                "planned" -> {comment.visibility = View.GONE; rating.visibility = View.GONE }
-                "watched" -> {}
+                "Planned" -> {comment.visibility = View.GONE; rating.visibility = View.GONE }
+                "Watched" -> {}
             }
-
 
             imageViewBack.setOnClickListener {
                 findNavController().popBackStack()
             }
+
             button2.setOnClickListener {
                 if (filmId != null) {
                     FilmsRepository.deleteFilm(filmId)
                     findNavController().popBackStack()
                 }
-                Log.d("BEBRABEBRABEBRA", films.toString())
             }
+
             button4.setOnClickListener{
                 findNavController().navigate(
                     R.id.action_filmDetailFragment_to_updateFilmFragment,
@@ -63,6 +63,4 @@ class FilmDetailFragment : Fragment(R.layout.fragment_film_detail) {
         super.onDestroy()
         binding = null
     }
-
-
 }
