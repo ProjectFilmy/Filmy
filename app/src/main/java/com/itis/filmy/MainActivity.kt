@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import androidx.room.Room
 import com.itis.filmy.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

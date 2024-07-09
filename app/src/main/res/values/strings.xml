@@ -11,6 +11,8 @@
     <string name="link_to_image">Link to image</string>
     <string name="commentary_on_the_film">Commentary on the film</string>
     <string name="add_film_button">Add film</string>
+    <string name="input_edit_type">Film Type</string>
+    <string name="update_film">Update Film</string>
     <string-array name="tabs">
         <item>Watched</item>
         <item>Planned</item>

@@ -1,9 +1,36 @@
 package com.itis.filmy
 
+import androidx.room.Delete
+import androidx.room.Update
+
 object FilmsRepository {
+
+    fun insertFilm(film: Film){
+        films.add(film)
+    }
+
+    fun deleteFilm(id : Int){
+        for (i in 0 until  films.size){
+            if (films.get(i).id == id){
+                films.removeAt(i)
+                break
+            }
+        }
+    }
+
+
+    fun updateFilm(film: Film){
+        for (i in 0 until  films.size){
+            if (films.get(i).id == film.id){
+                films[i] = film
+                break
+            }
+        }
+    }
+    var id: Int = 2;
     val films: MutableList<Film> = mutableListOf(
         Film(0,
-            "planned",
+            "Planned",
             "PlannedFilm",
             "Крутой",
             "12.03.2004",
@@ -13,7 +40,7 @@ object FilmsRepository {
 
         ),
         Film(1,
-            "watched",
+            "Watched",
             "WatchedFilm",
             "Страшный",
             "3.12.2009",

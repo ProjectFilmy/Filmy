@@ -1,9 +1,12 @@
 package com.itis.filmy
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
+import com.itis.filmy.FilmsRepository.films
 import com.itis.filmy.databinding.FragmentAddFilmBinding
 
 class AddFilmFragment: Fragment(R.layout.fragment_add_film) {
@@ -36,6 +39,8 @@ class AddFilmFragment: Fragment(R.layout.fragment_add_film) {
                 }
             }
             button.setOnClickListener {
+                FilmsRepository.insertFilm(Film(FilmsRepository.id++, spinner.selectedItem.toString() ,inputEditName.text.toString(), inputEditGenre.text.toString(), inputEditDate.text.toString(),inputEditComment.text.toString(), rating.rating, inputEditUrl.text.toString()))
+                Log.d("BEBRABEBRABEBRA",films.toString())
             }
         }
     }
