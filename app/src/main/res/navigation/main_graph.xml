@@ -52,5 +52,12 @@
         <action
             android:id="@+id/action_filmDetailFragment_to_plannedFragment"
             app:destination="@id/plannedFragment" />
+        <action
+            android:id="@+id/action_filmDetailFragment_to_updateFilmFragment"
+            app:destination="@id/updateFilmFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/updateFilmFragment"
+        android:name="com.itis.filmy.UpdateFilmFragment"
+        android:label="UpdateFilmFragment" />
 </navigation>

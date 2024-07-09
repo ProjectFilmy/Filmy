@@ -26,7 +26,7 @@ class PlannedFragment : Fragment(R.layout.fragment_planned) {
 
     private fun initAdapter(){
         adapter = FilmAdapter(
-            FilmsRepository.films.stream().filter { x -> x.type == "planned" }.collect(Collectors.toList()),
+            FilmsRepository.films.stream().filter { x -> x.type == "Planned" }.collect(Collectors.toList()),
             Glide.with(this@PlannedFragment)
         ){
                 filmId -> findNavController().navigate(
@@ -41,4 +41,5 @@ class PlannedFragment : Fragment(R.layout.fragment_planned) {
             rvPlanned.layoutManager = GridLayoutManager(requireContext(), 2)
         }
     }
+
 }
