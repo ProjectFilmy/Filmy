@@ -40,8 +40,18 @@ class AddFilmFragment: Fragment(R.layout.fragment_add_film) {
             }
             button.setOnClickListener {
                 if (validateForm()){
-                    FilmsRepository.insertFilm(Film(FilmsRepository.id++, spinner.selectedItem.toString() ,inputEditName.text.toString(), inputEditGenre.text.toString(), inputEditDate.text.toString(),inputEditComment.text.toString(), rating.rating, inputEditUrl.text.toString()))
-                    Toast.makeText(context, "movie added", Toast.LENGTH_SHORT).show()
+                    films.add(
+                        Film
+                            (films.size,
+                            spinner.selectedItem.toString(),
+                            inputEditName.text.toString(),
+                            inputEditGenre.text.toString(),
+                            inputEditDate.text.toString(),
+                            if (spinner.selectedItem.toString() == "Planned") "null" else inputEditComment.text.toString(),
+                            rating.rating,
+                            inputEditUrl.text.toString())
+                    )
+                    Toast.makeText(context, "Movie added", Toast.LENGTH_SHORT).show()
                     clear()
 
                 }else{
