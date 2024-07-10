@@ -24,7 +24,6 @@ object FilmsRepository {
             }
         }
     }
-    var id: Int = 2;
     val films: MutableList<Film> = mutableListOf(
         /*Film(0,
             "Planned",

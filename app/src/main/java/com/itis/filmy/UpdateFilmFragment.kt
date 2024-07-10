@@ -23,14 +23,14 @@ class UpdateFilmFragment : Fragment(R.layout.fragment_update) {
         glide = Glide.with(this)
 
         val filmId = arguments?.getInt("FILM_ID")
-        val film = FilmsRepository.films.find {it.id == filmId} ?: return
+        val film = films.find {it.id == filmId} ?: return
 
         binding?.run {
             inputEditName2.setText(film.name)
             inputEditGenre2.setText(film.genre)
             inputEditDate2.setText(film.date)
             rating2.rating = film.rating
-            inputEditComment2.setText(film.comment)
+            if (film.type == "Watched") inputEditComment2.setText(film.comment) else inputEditComment2.setText("")
             spinner2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                     val selectedItem = parent.getItemAtPosition(position).toString()
