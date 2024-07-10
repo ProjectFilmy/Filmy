@@ -1,5 +1,6 @@
 package com.itis.filmy
 
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -23,10 +24,17 @@ class FilmDetailFragment : Fragment(R.layout.fragment_film_detail) {
         glide = Glide.with(this)
 
         val filmId = arguments?.getInt("FILM_ID")
-        val film = FilmsRepository.films.find {it.id == filmId} ?: return
+        val film = films.find {it.id == filmId} ?: return
 
         binding?.run {
-            glide.load(film.url).into(imageView)
+            try{
+                Glide.with(imageView)
+                    .load(Uri.parse(film.uri))
+                    .into(imageView)
+            }
+            catch(e:Exception){
+                e.printStackTrace()
+            }
 
             Title.text = "Название фильма: " + film.name
             genre.text = "Жанр фильма: " + film.genre

@@ -1,9 +1,11 @@
 package com.itis.filmy
 
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
@@ -30,6 +32,7 @@ class UpdateFilmFragment : Fragment(R.layout.fragment_update) {
             inputEditGenre2.setText(film.genre)
             inputEditDate2.setText(film.date)
             rating2.rating = film.rating
+
             if (film.type == "Watched") inputEditComment2.setText(film.comment) else inputEditComment2.setText("")
             spinner2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
@@ -48,14 +51,31 @@ class UpdateFilmFragment : Fragment(R.layout.fragment_update) {
                 }
             }
 
+            var galleryUri: Uri? = null
+            val galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()){
+                if (it != null) {
+                    galleryUri = it
+                }
+            }
 
+            tvAddImage.setOnClickListener {
+                galleryLauncher.launch("image/*")
+            }
 
             imageViewBack2.setOnClickListener {
                 findNavController().popBackStack()
             }
+
             button3.setOnClickListener {
                 if (filmId != null) {
-                    FilmsRepository.updateFilm(Film(filmId, spinner2.selectedItem.toString() ,inputEditName2.text.toString(), inputEditGenre2.text.toString(), inputEditDate2.text.toString(),inputEditComment2.text.toString(), rating2.rating, inputEditUrl.text.toString()))
+                    FilmsRepository.updateFilm(Film(filmId,
+                        spinner2.selectedItem.toString(),
+                        inputEditName2.text.toString(),
+                        inputEditGenre2.text.toString(),
+                        inputEditDate2.text.toString(),
+                        inputEditComment2.text.toString(),
+                        rating2.rating,
+                        if (galleryUri == null) film.uri else galleryUri.toString()))
                     findNavController().popBackStack()
                 }
             }

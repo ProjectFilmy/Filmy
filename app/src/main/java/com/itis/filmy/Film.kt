@@ -9,10 +9,10 @@ data class Film(
     val date: String,
     val comment: String,
     val rating: Float,
-    val url: String
+    val uri: String
 ) {
     override fun toString():String{
-        return "$id $type $name $genre $date $comment $rating $url"
+        return "$id $type $name $genre $date $comment $rating $uri"
     }
 
 

@@ -17,7 +17,6 @@ class FilmAdapter(
             LayoutInflater.from(parent.context),
             parent,
             false),
-        glide = glide,
         onClick = onClick
     )
 

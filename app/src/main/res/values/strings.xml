@@ -13,6 +13,7 @@
     <string name="add_film_button">Add film</string>
     <string name="input_edit_type">Film Type</string>
     <string name="update_film">Update Film</string>
+    <string name="add_image">Click to add image</string>
     <string-array name="tabs">
         <item>Watched</item>
         <item>Planned</item>

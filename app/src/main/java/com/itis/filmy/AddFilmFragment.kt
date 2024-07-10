@@ -1,27 +1,34 @@
 package com.itis.filmy
 
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.itis.filmy.FilmsRepository.films
 import com.itis.filmy.databinding.FragmentAddFilmBinding
 
 class AddFilmFragment: Fragment(R.layout.fragment_add_film) {
+
     private var binding: FragmentAddFilmBinding? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentAddFilmBinding.bind(view)
         addingFilm()
     }
-    override fun onDestroy() {
-        super.onDestroy()
-        binding = null
-    }
+
     fun addingFilm(){
         binding?.run {
+            var galleryUri: Uri? = null
+            val galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()){
+                if (it != null) {
+                    galleryUri = it
+                }
+            }
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                     val selectedItem = parent.getItemAtPosition(position).toString()
@@ -38,6 +45,9 @@ class AddFilmFragment: Fragment(R.layout.fragment_add_film) {
                 override fun onNothingSelected(p0: AdapterView<*>?) {
                 }
             }
+            tvAddImage.setOnClickListener {
+                galleryLauncher.launch("image/*")
+            }
             button.setOnClickListener {
                 if (validateForm()){
                     films.add(
@@ -49,7 +59,7 @@ class AddFilmFragment: Fragment(R.layout.fragment_add_film) {
                             inputEditDate.text.toString(),
                             if (spinner.selectedItem.toString() == "Planned") "null" else inputEditComment.text.toString(),
                             rating.rating,
-                            inputEditUrl.text.toString())
+                            galleryUri.toString())
                     )
                     Toast.makeText(context, "Movie added", Toast.LENGTH_SHORT).show()
                     clear()
@@ -74,16 +84,21 @@ class AddFilmFragment: Fragment(R.layout.fragment_add_film) {
         }
         return valid
     }
+
     private fun clear(){
         binding?.run {
             inputEditName.text?.clear()
             inputEditGenre.text?.clear()
             inputEditDate.text?.clear()
-            inputEditUrl.text?.clear()
             inputEditComment.text?.clear()
             rating.rating = 0f
             spinner.setSelection(0)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 }
 
