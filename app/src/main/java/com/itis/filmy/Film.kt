@@ -12,7 +12,7 @@ data class Film(
     val uri: String
 ) {
     override fun toString():String{
-        return "$id $type $name $genre $date $comment $rating $uri"
+        return "$id;$type;$name;$genre;$date;$comment;$rating;$uri"
     }
 
 

@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun stringToFilm(str: String): Film {
-        val array = str.split(" ")
+        val array = str.split(";")
         return Film(
             Integer.parseInt(array[0]),
             array[1],
