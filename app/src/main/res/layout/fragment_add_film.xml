@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/add_film"
-        android:textSize="24sp"
+        style="@style/TitleBold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextSizeCheck" />
@@ -26,6 +26,7 @@
         android:hint="@string/film_name">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_edit_name"
+            style="@style/Lowercase"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -41,7 +42,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_edit_url"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            style="@style/Lowercase"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -56,6 +59,7 @@
             android:id="@+id/input_edit_date"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            style="@style/Lowercase"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,7 +74,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_edit_genre"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            style="@style/Lowercase"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <RatingBar
@@ -98,7 +104,9 @@
             android:id="@+id/input_edit_comment"
             android:layout_width="match_parent"
             android:visibility="visible"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            style="@style/Lowercase"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Spinner
