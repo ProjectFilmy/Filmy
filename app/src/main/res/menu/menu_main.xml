@@ -2,12 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/plannedFragment"
+        android:icon="@drawable/ic_planed"
         android:title="@string/planned_films"
         />
     <item
         android:id="@+id/watchedFragment"
+        android:icon="@drawable/ic_watched"
         android:title="@string/watched_films"/>
     <item
         android:id="@+id/addFilmFragment"
+        android:icon="@drawable/ic_plus"
         android:title="@string/add_film"/>
 </menu>
