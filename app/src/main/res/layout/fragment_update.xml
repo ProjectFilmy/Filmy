@@ -10,8 +10,8 @@
         android:id="@+id/title2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/TitleBold"
         android:text="@string/update_film"
-        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextSizeCheck" />
@@ -27,7 +27,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_edit_name2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            style="@style/Lowercase"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -41,7 +43,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_edit_url"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            style="@style/Lowercase"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -56,6 +60,7 @@
             android:id="@+id/input_edit_date2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            style="@style/Lowercase"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,7 +75,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_edit_genre2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            style="@style/Lowercase"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <RatingBar
@@ -98,7 +105,9 @@
             android:id="@+id/input_edit_comment2"
             android:layout_width="match_parent"
             android:visibility="visible"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            style="@style/Lowercase"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Spinner

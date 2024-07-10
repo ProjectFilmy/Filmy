@@ -43,6 +43,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageView"
+            android:fontFamily="@font/roboto_condensed_regular"
             android:textSize="24sp"
             tools:text="Title"/>
         <TextView
@@ -52,14 +53,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Title"
-            android:textSize="20sp"
+            style="@style/Lowercase"
             tools:text="@string/date_of_release"/>
         <TextView
             android:id="@+id/genre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textSize="20sp"
+            style="@style/Lowercase"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/date_of_release"
             tools:text="@string/genre" />
@@ -79,7 +80,7 @@
             android:id="@+id/comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            style="@style/Lowercase"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rating"
