@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.itis.filmy.FilmsRepository.films
 import com.itis.filmy.databinding.FragmentAddFilmBinding
@@ -38,8 +39,41 @@ class AddFilmFragment: Fragment(R.layout.fragment_add_film) {
                 }
             }
             button.setOnClickListener {
-                FilmsRepository.insertFilm(Film(FilmsRepository.id++, spinner.selectedItem.toString() ,inputEditName.text.toString(), inputEditGenre.text.toString(), inputEditDate.text.toString(),inputEditComment.text.toString(), rating.rating, inputEditUrl.text.toString()))
+                if (validateForm()){
+                    FilmsRepository.insertFilm(Film(FilmsRepository.id++, spinner.selectedItem.toString() ,inputEditName.text.toString(), inputEditGenre.text.toString(), inputEditDate.text.toString(),inputEditComment.text.toString(), rating.rating, inputEditUrl.text.toString()))
+                    Toast.makeText(context, "movie added", Toast.LENGTH_SHORT).show()
+                    clear()
+
+                }else{
+                    Toast.makeText(context, "You need to fill in all the fields", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
+
+    private fun validateForm(): Boolean{
+        var valid = true
+        binding?.run {
+            if (inputEditName.text.toString().isEmpty() ||
+                inputEditGenre.text.toString().isEmpty() ||
+                inputEditDate.text.toString().isEmpty() ||
+                (spinner.selectedItem.toString() == "Watched" && inputEditComment.text.toString().isEmpty())){
+                valid = false
+            }
+
+        }
+        return valid
+    }
+    private fun clear(){
+        binding?.run {
+            inputEditName.text?.clear()
+            inputEditGenre.text?.clear()
+            inputEditDate.text?.clear()
+            inputEditUrl.text?.clear()
+            inputEditComment.text?.clear()
+            rating.rating = 0f
+            spinner.setSelection(0)
+        }
+    }
 }
+
