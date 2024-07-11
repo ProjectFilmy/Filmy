@@ -27,6 +27,8 @@ class AddFilmFragment: Fragment(R.layout.fragment_add_film) {
             val galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()){
                 if (it != null) {
                     galleryUri = it
+                    image.setImageURI(galleryUri)
+                    image.visibility = View.VISIBLE
                 }
             }
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
@@ -93,6 +95,8 @@ class AddFilmFragment: Fragment(R.layout.fragment_add_film) {
             inputEditComment.text?.clear()
             rating.rating = 0f
             spinner.setSelection(0)
+            image.setImageURI(null)
+            image.visibility = View.GONE
         }
     }
 
