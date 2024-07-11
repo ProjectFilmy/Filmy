@@ -36,7 +36,7 @@ class FilmDetailFragment : Fragment(R.layout.fragment_film_detail) {
                 e.printStackTrace()
             }
 
-            Title.text = "Название фильма: " + film.name
+            Title.text = film.name
             genre.text = "Жанр фильма: " + film.genre
             dateOfRelease.text = "Дата выхода: " + film.date
             rating.rating = film.rating
