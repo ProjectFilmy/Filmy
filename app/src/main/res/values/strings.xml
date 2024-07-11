@@ -14,6 +14,8 @@
     <string name="input_edit_type">Film Type</string>
     <string name="update_film">Update Film</string>
     <string name="add_image">Click to add image</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
     <string-array name="tabs">
         <item>Watched</item>
         <item>Planned</item>
