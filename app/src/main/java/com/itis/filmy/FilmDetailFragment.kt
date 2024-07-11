@@ -50,14 +50,14 @@ class FilmDetailFragment : Fragment(R.layout.fragment_film_detail) {
                 findNavController().popBackStack()
             }
 
-            button2.setOnClickListener {
+            deleteButton.setOnClickListener {
                 if (filmId != null) {
                     FilmsRepository.deleteFilm(filmId)
                     findNavController().popBackStack()
                 }
             }
 
-            button4.setOnClickListener{
+            updateButton.setOnClickListener{
                 findNavController().navigate(
                     R.id.action_filmDetailFragment_to_updateFilmFragment,
                     bundleOf("FILM_ID" to filmId)
